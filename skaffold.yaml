@@ -19,8 +19,8 @@ deploy:
           database.hostname: "{{.DB_HOSTNAME}}"
           database.databaseName: "{{.DB_DATABASE_NAME}}"
         setValues:
-          hpa.enabled: false
-          canary.enabled: false
+          hpa.enabled: true
+          canary.enabled: true
 profiles:
   - name: local
     activation:
@@ -39,3 +39,4 @@ profiles:
       - op: add
         path: /deploy/helm/releases/0/setValues/database.databaseName
         value: staging
+
